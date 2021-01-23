@@ -111,6 +111,57 @@ public class ListTester {
         printResult(LINKED_LIST, linkStop - linkStart);
     }
 
+    @Test
+    void setElementTest(){
+        long arrStart = System.nanoTime();
+        for (int i = 0; i < 10000; i++) {
+            arrList.set(5000, i);
+        }
+        long arrStop = System.nanoTime();
+        printResult(ARRAY_LIST, arrStop - arrStart);
+
+        long linkStart = System.nanoTime();
+        for (int i = 0; i < 10000; i++) {
+            linkList.set(5000, i);
+        }
+        long linkStop = System.nanoTime();
+        printResult(LINKED_LIST, linkStop - linkStart);
+    }
+
+    @Test
+    void removeMiddleElementTest(){
+        long arrStart = System.nanoTime();
+        for (int i = 0; i < 2000; i++) {
+            arrList.remove(6000);
+        }
+        long arrStop = System.nanoTime();
+        printResult(ARRAY_LIST, arrStop - arrStart);
+
+        long linkStart = System.nanoTime();
+        for (int i = 0; i < 2000; i++) {
+            linkList.remove(6000);
+        }
+        long linkStop = System.nanoTime();
+        printResult(LINKED_LIST, linkStop - linkStart);
+    }
+
+    @Test
+    void removeFirstElementTest(){
+        long arrStart = System.nanoTime();
+        for (int i = 0; i < 2000; i++) {
+            arrList.remove(0);
+        }
+        long arrStop = System.nanoTime();
+        printResult(ARRAY_LIST, arrStop - arrStart);
+
+        long linkStart = System.nanoTime();
+        for (int i = 0; i < 2000; i++) {
+            linkList.remove(0);
+        }
+        long linkStop = System.nanoTime();
+        printResult(LINKED_LIST, linkStop - linkStart);
+    }
+
     private void printResult(String listType, long result){
         System.out.println(String.format("Result for %s: %s", listType, result));
     }
